@@ -4,7 +4,10 @@ Quick notes about useful tools or tips when working with software/solution proje
 ## Git
 Frequently used git commands.
 
-## Excel
+## Office suites
+### Excel
+### Visio
+For logic and data flow diagrams.
 
 ## SQL
 
