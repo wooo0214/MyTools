@@ -1,0 +1,18 @@
+# Notes for python learning
+# You can add your previous py notes as well
+
+# Kaggle: Intro to programing and python  
+
+'''
+1. Functions
+2. Data types - IFBS
+3. Condition and condition statements, if elif
+4. Lists[], 
+	- Methods: .remove(), .append() , .split(), 
+	    https://www.w3schools.com/python/python_lists_remove.asp
+    - Functions: sum(list), min, max
+
+    **Methods vs Functions**
+    In Python, methods and functions have similar purposes but differ in important ways. Functions are independent blocks of code that can be called from anywhere, while methods are tied to objects or classes and need an object or class instance to be invoked.
+
+'''
