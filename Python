@@ -2,8 +2,11 @@
 # You can add your previous py notes as well
 
 # Kaggle: Intro to programing and python  
+# https://www.kaggle.com/learn/python
 
 '''
+Block 1
+
 1. Functions
 2. Data types - IFBS
 3. Condition and condition statements, if elif
@@ -16,3 +19,164 @@
     In Python, methods and functions have similar purposes but differ in important ways. Functions are independent blocks of code that can be called from anywhere, while methods are tied to objects or classes and need an object or class instance to be invoked.
 
 '''
+
+'''
+Block 2
+
+1. Operators
+
+1.1 Arithmetic operators
+a // b	Floor division	Quotient of a and b, removing fractional parts
+a % b	Modulus	Integer remainder after division of a by b
+a ** b	Exponentiation	a raised to the power of b
+
+1.2 Boolean operators
+Comparison operators: ==, <, <=, >, >=, !=
+and, or, not:
+- and is evaluated before or
+    >>> True or True and False
+    True
+
+bool() it can convert number, strings, other types to a boolean.
+    
+2. Built in functions for working with numbers
+int, float, abs
+
+3. Conditional Expression
+if, else, elif
+
+'''
+print(5 // 2)
+print(6 // 2)
+
+print(float(10))
+print(int(3.33))
+# They can even be called on strings!
+print(int('807') + 1)
+
+# Tricks to swap 2 variables
+a = [1, 2, 3]
+b = [3, 2, 1]
+
+a, b = b, a
+
+# Conditional Expression
+def to_smash(total_candies):
+    """Return the number of leftover candies that must be smashed after distributing
+    the given number of candies evenly between 3 friends.
+    
+    >>> to_smash(91)
+    1
+    """
+    # print("Splitting", total_candies, "candies")
+    # return total_candies % 3
+    print("Splitting", total_candies, "candy" if total_candies == 1 else "candies")
+
+'''
+Block 3
+1. Getting help
+help()
+
+2. Defining functions
+docstring: add description to a custom function
+add argument with default value: arg = x
+
+If a function has no return, the output of such functions is None, which is a 'NoneType' class.
+
+3. Functions applied to functions
+To supply functions as arguments to other functions. See example code.
+
+Functions that operate on other functions are called "higher-order functions." 
+
+4. round(number, ndigits=None)
+If ndigits < 0, round() can help to chop off something like 338,177 to 338,000
+'''
+
+help(print)
+
+def least_difference(a,b,c):
+    """
+    Return the smallest difference between any two numbers among a, b and c.
+    >>> least_difference(1,5,-5)
+    4
+    """
+
+    diff1 = abs(a-b)
+    diff2 = abs(b-c)
+    diff3 = abs(a-c)
+
+    return min (diff1, diff2, diff3)
+
+# Functions applied to functions
+def mult_by_five(x):
+    return 5 * x
+
+def call(fn, arg):
+    """Call fn on arg"""
+    return fn(arg)
+
+def squared_call(fn, arg):
+    """Call fn on the result of calling fn on arg"""
+    return fn(fn(arg))
+
+print(
+    call(mult_by_five, 1),
+    squared_call(mult_by_five, 1), 
+    sep='\n', # '\n' is the newline character - it starts a new line
+)
+
+# Call custom function mod_5 inside the built-in max function
+def mod_5(x):
+    """Return the remainder of x after dividing by 5"""
+    return x % 5
+
+print(
+    'Which number is biggest?',
+    max(100, 51, 14),
+    'Which number is the biggest modulo 5?',
+    max(100, 51, 14, key=mod_5),
+    sep='\n',
+)
+
+'''
+Block 4
+
+0. Objects
+    In short, objects carry some things (including functions) around with them. You access that stuff using Python's dot syntax.
+    A function attached to an object is called a method. (Non-function things attached to an object, such as imag, are called attributes).
+
+    For example, numbers have a method called bit_length
+
+1. Lists[]
+    1.1 slicing 
+    >>> planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+    planets[0:3] 左闭右开
+    >>> ['Mercury', 'Venus', 'Earth']
+    planets[:3] 默认从0位开始
+    planets[3:] 默认end index为list的长度
+
+    1.2 changing lists
+
+    1.3 functions
+    len(), 
+    sorted() sorted in alphabetical order
+    sum(), max()
+
+    1.4 methods
+    .append
+    .pop
+    .index
+        we can use the in operator to determine whether a list contains a particular value
+
+    we can call help() on the list itself to learn all the methods and attributes attached to a list.
+
+2. Tuples()
+
+
+'''
+planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
+# All the planets except the first and last
+planets[1:-1]
+
+x = 1
+help(x.bit_length)
