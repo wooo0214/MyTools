@@ -2,7 +2,8 @@ You can upload jypter notbooks to Kaggle
 > Kaggle account: 163/2>1
 
 ## Kaggle projects followed
-1. Galaxy Multi-Image Classification with LeNet-5 https://www.kaggle.com/code/tenzinmigmar/galaxy-multi-image-classification-with-lenet-5
+1. Galaxy Multi-Image Classification with LeNet-5   
+https://www.kaggle.com/code/tenzinmigmar/galaxy-multi-image-classification-with-lenet-5
 
     中文知乎搬运： https://zhuanlan.zhihu.com/p/396047236
         
