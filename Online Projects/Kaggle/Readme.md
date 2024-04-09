@@ -2,6 +2,7 @@ You can upload jypter notbooks to Kaggle
 > Kaggle account: 163/2>1
 
 ## Kaggle projects followed
+> See notebooks on Kaggle for details.
 1. Galaxy Multi-Image Classification with LeNet-5   
 https://www.kaggle.com/code/tenzinmigmar/galaxy-multi-image-classification-with-lenet-5
 
@@ -24,7 +25,7 @@ https://www.kaggle.com/code/kashnitsky/topic-9-part-2-time-series-with-facebook-
 1. Movie recommendation system  
 https://www.kaggle.com/code/ibtesama/getting-started-with-a-movie-recommendation-system
 
-    - Tags: 推荐recommendation
+    - Tags: 推荐recommendation, 人口统计推荐demographic recommender, 基于内容的筛选content based filtering
     - dataset: TMDB 5000 movie
 
 
