@@ -172,6 +172,12 @@ Block 4
 
     we can call help() on the list itself to learn all the methods and attributes attached to a list.
 
+    ** List Comprehensions: https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions
+    Examples: 
+    - squares = [x**2 for x in range(10)]
+    - >>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+            [(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+
 2. Tuples()
 
 
