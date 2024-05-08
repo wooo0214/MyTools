@@ -1,4 +1,16 @@
-来源：
+## MySQL vs MSSQL
+
+https://www.plesk.com/blog/various/mysql-vs-mssql/
+
+MySQL is an open-source relational database management system, known for its scalability, reliability, and ease of use. It offers a range of features including data integrity, transactions, indexes, and stored procedures, commonly used in web applications, content management systems, and other software solutions that require efficient and organized data storage and retrieval.
+
+MSSQL is an RDBMS developed by MS, using SQL to interact with the db and offers advanced capabilities, such as indexing, stored procedures, and triggers. It supports a wide range of features, including transaction processing, data warehousing, and business intelligence. It interacts well with MS products, making it a popular choice for organizations that rely on the Microsoft ecosystem for their database needs.
+
+### Differences
+
+1. OS: MySQL offers smooth performance on several well-known operating systems such as Windows, Mac OS X, and Linux. MSSQL 
+
+
 ##  https://www.tutorialspoint.com/sql/sql_interview_questions.htm
 
 SELECT column_name(s)
@@ -84,7 +96,9 @@ Sql function
         4. Difficulty of distributed transactions 
 
 ## Leetcode
+
 https://leetcode.com/problems/game-play-analysis-iv/
+
     - Two columns as primary key (col a, col b)
         ○ How to select the row that meets conditions
         ○ You cannot use Alias in where clause, unless you make the selection as a new table
