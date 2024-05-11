@@ -28,3 +28,10 @@ from tensorflow.keras import utils
 from astroNN.datasets import galaxy10
 from astroNN.datasets.galaxy10 import galaxy10cls_lookup'''
 
+'''
+stuck at 
+failed to import these two components on kaggle: 
+from astroNN.datasets import galaxy10 
+from astroNN.datasets.galaxy10 import galaxy10cls_lookup
+'''
+
