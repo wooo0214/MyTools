@@ -122,10 +122,41 @@ counts = df.value_counts().sort_index()
 print(counts)
 
 def class_distribution(x, y, labels):
-    fig, ax = plt.subplots()
-    ax.bar(x, y)
+    fig, ax = plt.subplots() # 建立画布窗口，等效于 fig, ax = plt.subplots(11)
+    ax.bar(x, y) # 定义一个bar图
     ax.set_xticklabels(labels, rotation=90)
     plt.show()
     
 class_distribution(features, counts, features)
 
+'''
+fig, axes = plt.subplots(2,2)
+data = pd.Series(np.random.rand(16), index=list('abcdefghijklmnop'))
+
+x1 = np.linspace(0,4*np.pi,100)
+y1 = np.sin(x1)
+
+# axes[x,x] tells where to draw the fig
+axes[0, 0].axis('off')
+
+axes[1, 0].plot(x1, y1)
+
+data.plot.bar(ax=axes[0,0])
+plt.show()
+'''
+
+## 根据分布函数
+### 下面这段sequetial是干嘛的？
+
+model = Sequential()
+
+# Baseline model to compare to LeNet-5
+model.add(Flatten(input_shape=(69, 69, 3)))
+model.add(Dense(128, activation='relu'))
+model.add(Dense(10, activation='softmax'))
+
+model_optimizer = Adam(lr=0.001)
+
+model.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
+lol = model.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
