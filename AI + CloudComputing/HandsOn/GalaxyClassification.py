@@ -160,3 +160,47 @@ model_optimizer = Adam(lr=0.001)
 model.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
 lol = model.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
+
+# Predictions on baseline model 
+
+predictions = model.predict(x_test)
+
+for i in range(10):
+    print("Actual:", features[y_test[i]])
+    print("Prediction:", features[np.argmax(predictions[i])])
+    print ("______")
+    print()
+
+## 引入LeNet-5 Architecture，得到拟合效果更好的模型
+model2 = Sequential()
+
+# LeNet-5 conv-net architecture
+model2.add(Conv2D(filters=6, kernel_size=(5,5), strides=(1,1), activation='tanh', input_shape=(69,69,3)))
+model2.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model2.add(Conv2D(filters=16, kernel_size=(5,5), strides=(1,1), activation='tanh'))
+model2.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+
+model2.add(Flatten())
+model2.add(Dense(units=120, activation='tanh'))
+model2.add(Dense(units=84, activation='tanh'))
+model2.add(Dense(units=10, activation='softmax'))
+
+model_optimizer = Adam(lr=0.001)
+
+reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
+
+model2.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+model2.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
+
+predict = model2.predict(x_test).argmax(axis=1)
+
+for i in range(10):
+    print("Actual:", features[y_test[i]])
+    print("Prediction:", features[np.argmax(predict[i])])
+    print("-----")
+    print()
+
+## 理解卷积：https://cloud.tencent.com/developer/article/1523074
+
+## 查看分类报告
+classification_report(y_test, predict)
