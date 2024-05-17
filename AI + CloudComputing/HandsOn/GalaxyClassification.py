@@ -102,7 +102,13 @@ x_train.shape, x_test.shape
 >>> ((14188, 256, 256, 3), (3548, 256, 256, 3))
 means we now have a train set with 14188 colored images, dimensions 256 by 256; and a test set with 3548 images dimensions 256 * 256
 '''
-## Q: why 256 by 256?
+## Q: why 256 by 256? > 图片像素是256*256
+'''
+type(x_train[1])
+>>> numpy.ndarray
+x_train[1].shape
+>>> (256,256,3)
+'''
 
 # check a random section of train dataset images
 fig = plt.figure(figsize=(20,20))  # figsize: Width, height in inches
@@ -147,6 +153,19 @@ plt.show()
 
 ## 根据分布函数
 ### 下面这段sequetial是干嘛的？
+'''
+Sequencial，序贯模型，是Keras模型之一，另一种是Model函数式模型。序贯模型是函数式模型的一种特殊情况。
+
+序贯模型是多个网络层的线性堆叠，“一条路走到黑”，为最简单的线性，从头到尾的结构顺序，不发生分叉。可以通过向Sequential模型传递一个layer的list来构造Sequential模型，也可以通过.add()方法一个个的将layer加入模型中。
+
+应用序贯模型的基本步骤
+1，model.add()  　　　   　  添加层
+2，model.compile()　　　　 模型训练的BP模式设置
+3，model.fit()　　　　　　   模型训练参数设置+训练
+4，model.evaluate()   　　　   模型评估
+5，model.predict()　　　　　模型预测
+
+'''
 
 model = Sequential()
 
@@ -175,6 +194,14 @@ for i in range(10):
 model2 = Sequential()
 
 # LeNet-5 conv-net architecture
+'''
+LeNet-5是一种经典的卷积神经网络。LeNet-5的基本结构包括7层网络结构（不含输入层），其中包括2个卷积层、2个降采样层（池化层）、2个全连接层和输出层。LeNet-5的训练过程使用反向传播算法（BP算法），通过最小化误差函数（通常使用交叉熵损失函数）来优化网络的权重和偏置。网络的权重和偏置是通过随机初始化得到的，然后，网络通过反向传播算法不断地调整权重和偏置，使得误差函数最小化。
+
+LeNet-5也为后来更加复杂的卷积神经网络奠定了基础，例如AlexNet、VGG、ResNet等。这些网络都采用了类似LeNet-5的卷积神经网络结构，但增加了更多的层数和参数，从而在图像分类、目标检测等任务中取得了更好的效果。虽然LeNet-5在当今深度学习的发展中已经不再是最先进的技术，但它的经典结构和训练方法仍然对深度学习的发展和应用有重要意义。
+
+以下通过加入卷积层1、池化层1、卷积层2、池化层2，最后将输入传递到全连接层，构建了一个简单的卷积神经网络，来提高训练效果和预测准确度。
+'''
+
 model2.add(Conv2D(filters=6, kernel_size=(5,5), strides=(1,1), activation='tanh', input_shape=(69,69,3)))
 model2.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
 model2.add(Conv2D(filters=16, kernel_size=(5,5), strides=(1,1), activation='tanh'))
@@ -200,7 +227,7 @@ for i in range(10):
     print("-----")
     print()
 
-## 理解卷积：https://cloud.tencent.com/developer/article/1523074
+## 理解卷积：b站王大叔学科学；https://cloud.tencent.com/developer/article/1523074
 
 ## 查看分类报告
 classification_report(y_test, predict)
