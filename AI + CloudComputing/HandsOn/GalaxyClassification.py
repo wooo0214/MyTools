@@ -174,7 +174,7 @@ model.add(Flatten(input_shape=(69, 69, 3)))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(10, activation='softmax'))
 
-model_optimizer = Adam(lr=0.001)
+model_optimizer = Adam(learning_rate=0.001) # need to use learning_rate instead of lr
 
 model.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
@@ -201,7 +201,7 @@ LeNet-5也为后来更加复杂的卷积神经网络奠定了基础，例如Alex
 
 以下通过加入卷积层1、池化层1、卷积层2、池化层2，最后将输入传递到全连接层，构建了一个简单的卷积神经网络，来提高训练效果和预测准确度。
 '''
-
+'''
 model2.add(Conv2D(filters=6, kernel_size=(5,5), strides=(1,1), activation='tanh', input_shape=(69,69,3)))
 model2.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
 model2.add(Conv2D(filters=16, kernel_size=(5,5), strides=(1,1), activation='tanh'))
@@ -212,14 +212,34 @@ model2.add(Dense(units=120, activation='tanh'))
 model2.add(Dense(units=84, activation='tanh'))
 model2.add(Dense(units=10, activation='softmax'))
 
-model_optimizer = Adam(lr=0.001)
+model_optimizer = Adam(learning_rate=0.001)
 
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
 
 model2.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
-model2.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
+model2.fit(x_train, y_train, epochs=10, callbacks=[reduceLR]) # 报错again：
 
 predict = model2.predict(x_test).argmax(axis=1)
+'''
+
+## 由于自己导入的数据集中图片大小为256*256，与原文有别，需对原文代码中的部分数据修改，建立model3
+model3=Sequential()
+model3.add(Conv2D(filters=6, kernel_size=(5,5), strides=(1,1), activation='tanh', input_shape=(256,256,3)))
+model3.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model3.add(Conv2D(filters=16, kernel_size=(5,5), strides=(1,1), activation='tanh'))
+model3.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model3.add(Flatten())
+model3.add(Dense(units=120, activation='tanh'))
+model3.add(Dense(units=84, activation='tanh'))
+model3.add(Dense(units=10, activation='softmax'))
+model_optimizer = Adam(learning_rate=0.001)
+
+reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
+
+model3.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+
+model3.fit(x_train, y_train, epochs=10, callbacks=[reduceLR]) # 最花时间
+
 
 for i in range(10):
     print("Actual:", features[y_test[i]])
@@ -231,3 +251,22 @@ for i in range(10):
 
 ## 查看分类报告
 classification_report(y_test, predict)
+
+## confusion_matrix
+
+'''
+如果已经训练好了一个系统用来区分猫和狗，那混淆矩阵就可以概括算法的测试结果以便将来的检查。假设一个13个动物的样本，8只猫和5只狗，那混淆矩阵的结果可能如下表所示：
+
+      |预测的类别      |
+	  | 猫    | 狗    |
+实际|猫|  *5* |   3   |
+类别|狗|  2   |  *3*  |
+
+在这个混淆矩阵中，系统预测了8只实际的猫，其中系统预测3只是狗，而5只狗中，则预测有2只是猫。 所有正确的预测都位于表格的对角线上（以粗体突出显示），因此很容易从视觉上检查表格中的预测错误，因为它们将由对角线之外的值表示。
+'''
+
+matrix = confusion_matrix(y_test, predict)
+sns.heatmap(matrix, annot=True)
+plt.title('Galaxy Confusion Matrix')
+plt.xlabel('Predicted class')
+plt.ylabel('True class')

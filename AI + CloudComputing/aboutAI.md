@@ -23,3 +23,6 @@ AI research uses a wide variety of techniques to accomplish the goals above.
 - Artificial neural networks
 - Deep learning
 - Generative Pre-trained Transformers (GPT)
+
+## Machine Learning
+From perceptron, to convolution, and to neural network, and to convolutional neural network. 
