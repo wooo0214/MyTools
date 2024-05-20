@@ -223,23 +223,23 @@ predict = model2.predict(x_test).argmax(axis=1)
 '''
 
 ## 由于自己导入的数据集中图片大小为256*256，与原文有别，需对原文代码中的部分数据修改，建立model3
-model3=Sequential()
-model3.add(Conv2D(filters=6, kernel_size=(5,5), strides=(1,1), activation='tanh', input_shape=(256,256,3)))
-model3.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
-model3.add(Conv2D(filters=16, kernel_size=(5,5), strides=(1,1), activation='tanh'))
-model3.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
-model3.add(Flatten())
-model3.add(Dense(units=120, activation='tanh'))
-model3.add(Dense(units=84, activation='tanh'))
-model3.add(Dense(units=10, activation='softmax'))
+model5=Sequential()
+model5.add(Conv2D(filters=6, kernel_size=(9,9), strides=(4,4), activation='tanh', input_shape=(256,256,3)))
+model5.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model5.add(Conv2D(filters=16, kernel_size=(9,9), strides=(4,4), activation='tanh'))
+model5.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model5.add(Flatten())
+model5.add(Dense(units=120, activation='tanh'))
+model5.add(Dense(units=84, activation='tanh'))
+model5.add(Dense(units=10, activation='softmax'))
 model_optimizer = Adam(learning_rate=0.001)
 
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
 
-model3.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+model5.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+model5.fit(x_train, y_train, epochs=5, callbacks=[reduceLR]) # 最花时间
 
-model3.fit(x_train, y_train, epochs=10, callbacks=[reduceLR]) # 最花时间
-
+# May 20th, 10th epoch accuracy still low (0.1396). See github issues for details.
 
 for i in range(10):
     print("Actual:", features[y_test[i]])

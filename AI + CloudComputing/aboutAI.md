@@ -25,4 +25,18 @@ AI research uses a wide variety of techniques to accomplish the goals above.
 - Generative Pre-trained Transformers (GPT)
 
 ## Machine Learning
+
 From perceptron, to convolution, and to neural network, and to convolutional neural network. 
+
+> A perceptron and a support vector machine (SVM) are not the same, although they are both used for classification tasks in machine learning.
+
+- Perceptron: This is a type of linear classifier, which makes its predictions based on a linear predictor function combining a set of weights with the feature vector. It is one of the simplest types of artificial neural networks and is used primarily for binary classification.
+
+- Support Vector Machine (SVM): This is a more advanced classification algorithm that finds the hyperplane that best separates the data into different classes. SVMs can handle both linear and non-linear classification by using kernel functions to transform the data into higher dimensions.
+
+    In summary, while both are used for classification, SVMs are generally more powerful and flexible compared to perceptrons.
+
+### Logistic Regression
+
+Logistic regression is a supervised machine learning algorithm that accomplishes binary classification tasks by predicting the probability of an outcome, event, or observation. 
+The model delivers a binary or dichotomous outcome limited to two possible outcomes: yes/no, 0/1, or true/false.
