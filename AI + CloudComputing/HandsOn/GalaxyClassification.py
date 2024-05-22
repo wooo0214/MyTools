@@ -167,22 +167,23 @@ Sequencial，序贯模型，是Keras模型之一，另一种是Model函数式模
 
 '''
 
-model = Sequential()
+modelzz = Sequential()
 
-# Baseline model to compare to LeNet-5
-model.add(Flatten(input_shape=(69, 69, 3)))
-model.add(Dense(128, activation='relu'))
-model.add(Dense(10, activation='softmax'))
+# Baseline model to compare to LeNet-5 
+## pretty slow 200ms+/step
+modelzz.add(Flatten(input_shape=(69, 69, 3)))
+modelzz.add(Dense(128, activation='relu'))
+modelzz.add(Dense(10, activation='softmax'))
 
 model_optimizer = Adam(learning_rate=0.001) # need to use learning_rate instead of lr
 
-model.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+modelzz.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
-lol = model.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
+lol = modelzz.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
 
 # Predictions on baseline model 
 
-predictions = model.predict(x_test)
+predictions = modelz.predict(x_test)
 
 for i in range(10):
     print("Actual:", features[y_test[i]])
@@ -223,23 +224,41 @@ predict = model2.predict(x_test).argmax(axis=1)
 '''
 
 ## 由于自己导入的数据集中图片大小为256*256，与原文有别，需对原文代码中的部分数据修改，建立model3
-model5=Sequential()
-model5.add(Conv2D(filters=6, kernel_size=(9,9), strides=(4,4), activation='tanh', input_shape=(256,256,3)))
-model5.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
-model5.add(Conv2D(filters=16, kernel_size=(9,9), strides=(4,4), activation='tanh'))
-model5.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
-model5.add(Flatten())
-model5.add(Dense(units=120, activation='tanh'))
-model5.add(Dense(units=84, activation='tanh'))
-model5.add(Dense(units=10, activation='softmax'))
+model7=Sequential()
+model7.add(Conv2D(filters=16, kernel_size=(9,9), strides=(4,4), activation='tanh', input_shape=(256,256,3)))
+model7.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model7.add(Conv2D(filters=32, kernel_size=(5,5), strides=(1,1), activation='tanh'))
+model7.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+model7.add(Conv2D(filters=32, kernel_size=(3,3), strides=(1,1), activation='tanh'))
+model7.add(AveragePooling2D(pool_size=(2,2), strides=(2,2)))
+
+model7.add(Flatten())
+model7.add(Dense(units=120, activation='tanh'))
+model7.add(Dense(units=84, activation='tanh'))
+model7.add(Dense(units=10, activation='softmax'))
 model_optimizer = Adam(learning_rate=0.001)
 
 reduceLR = ReduceLROnPlateau(monitor='accuracy', factor=.001, patience=1, min_delta=0.01, mode="auto")
 
-model5.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
-model5.fit(x_train, y_train, epochs=5, callbacks=[reduceLR]) # 最花时间
+model7.compile(optimizer=model_optimizer, loss='sparse_categorical_crossentropy', metrics=["accuracy"])
+model7.fit(x_train, y_train, epochs=5, callbacks=[reduceLR]) # 最花时间
 
-# May 20th, 10th epoch accuracy still low (0.1396). See github issues for details.
+### May 20th, 10th epoch accuracy still low (0.1396). See github issues for details.
+
+## 使用summary查看模型参数
+'''
+model5.summary()
+>>>
+Layer | output shape | Param #
+conv2d_11 | (None, 62, 62, 6) | 1464
+average_pooling2d_10 | (None, 31, 31, 6) | 0
+conv2d_12 | (None, 6, 6, 16) | 7792 0
+average_pooling2d_11 | (None, 3, 3, 16) | 0
+...
+'''
+
+## 模型预测
+predict = model6.predict(x_test).argmax(axis=1)
 
 for i in range(10):
     print("Actual:", features[y_test[i]])
