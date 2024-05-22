@@ -1,6 +1,24 @@
 # Galaxy Multi-Image Classification with LeNet-5
 # https://www.kaggle.com/code/tenzinmigmar/galaxy-multi-image-classification-with-lenet-5/notebook
 
+
+'''
+[Done]
+
+Model Summary
+
+1. At the 3rd epoch, compared to the baseline modelzz : accuracy: 0.1488 - loss: 2.2392, the model7 has accuracy: 0.5092 and loss: 1.3635. The accuracy was improved 242% and the loss was reduced 39%.
+2. With higher epochs (10), model7 has accuracy: 0.7445 - loss: 0.7295. Fit time < 10 mins.
+3. Model 7 has 0.9 recall for type 2 (smooth, completely round) and 0.82 recall for type 9 (disk, face-on, loose spiral), meaning it has a strong ability to distinguish positive samples in these two types of galaxies.
+4. Type 2 has the highest f1 score 0.83 indicating higher accuracy levels; while type 0 (disk, face-on, no spiral) only has 0.2 f1 score and 0.14 recall meaning model 7's ability to recognize type 0 is weak and it classifies most type 0 into other types incorrectly.
+5. Types that have f1 score >=0.7:
+- smooth, completely round
+- smooth, in-between round
+- disk, face-on, medium spiral
+- disk, face-on, loose spiral
+
+'''
+
 # load with astroNN: astroNN is a python package to do various kinds of neural networks with targeted application in astronomy by using Keras API as model and training prototyping, but at the same time take advantage of Tensorflow’s flexibility.
 # https://astronn.readthedocs.io/en/latest/galaxy10.html
 
