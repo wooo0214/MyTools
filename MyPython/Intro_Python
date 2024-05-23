@@ -191,6 +191,29 @@ planets[1:-1]
 x = 1
 help(x.bit_length)
 
+# Starred Expression
+'''
+a feature that allows for the unpacking of elements from iterable like lists.
+
+In assignment method, the starred expression is used in an assignment to unpack the first element (first) and the rest of the elements (rest) from a list (numbers). The first variable captures the first element, and the rest variable is assigned a list containing the remaining elements.
+'''
+# Example list
+numbers = [1, 2, 3, 4, 5]
+ 
+# Unpack the list using starred expression
+first, *rest = numbers
+ 
+# Print the results
+print("First element:", first)
+print("Rest of the elements:", rest)
+
+'''
+output:
+First element: 1
+Rest of the elements: [2, 3, 4, 5]
+'''
+
+
 '''
 1. Loops
 
