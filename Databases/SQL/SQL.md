@@ -1,3 +1,14 @@
+# Overview
+
+Structured query language (SQL) is a standard language for database creation and manipulation. 
+
+# DBMS
+
+- RDBMS
+- NoSQL
+- Graph
+- ...
+
 ## MySQL vs MSSQL
 
 https://www.plesk.com/blog/various/mysql-vs-mssql/
@@ -52,7 +63,10 @@ Sql function
     Case
     临时建表查询
 
-##  Coursera：Foundations for Big Data Analysis with SQL <https://www.coursera.org/learn/foundations-big-data-analysis-sql/lecture/Qc8OG/what-does-a-dbms-do> 
+##  Coursera：Foundations for Big Data Analysis with SQL 
+
+<https://www.coursera.org/learn/foundations-big-data-analysis-sql/lecture/Qc8OG/what-does-a-dbms-do> 
+
     ü SQL command 4 categories:
 
         DDL definition
