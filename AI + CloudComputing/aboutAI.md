@@ -40,3 +40,24 @@ From perceptron, to convolution, and to neural network, and to convolutional neu
 
 Logistic regression is a supervised machine learning algorithm that accomplishes binary classification tasks by predicting the probability of an outcome, event, or observation. 
 The model delivers a binary or dichotomous outcome limited to two possible outcomes: yes/no, 0/1, or true/false.
+
+### Loss functions
+
+> human model, the model we want to figure out using ML. x<sub>i</sub> is the human predicts and it equals either 1 or 0.   
+ML model. y<sub>i</sub> is the machine model predicts of the probability, which ranges from 0 ~ 1.
+
+- Least square method   
+    min of (x<sub>i</sub> - y<sub>i</sub>)<sup>2</sup>
+
+- Max likelihood estimation   
+    use log function to convert * to +
+- Cross entropy   
+    - use entropy (information entropy) to discribe the complexity of a model.
+    - the smaller of difference between models entropies, the better for a machine model can be.
+
+
+### Metrics
+
+Accuracy, precision, recall, f1
+ROC, AUC
+business metrics
