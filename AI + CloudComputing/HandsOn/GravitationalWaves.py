@@ -88,3 +88,17 @@ Sovled: install the latest ! pip install -q 'gwpy==3.0.8'
 # Fast Fourier Transform. Calculating the power spectral density
 
 # https://gwosc.org/o2speclines/
+
+### Quiz 1
+'''
+Q: Plot the data for the LIGO-Hanford detector around GW190412. Looking at your new LIGO-Handford plot, can your eye identify a signal peak?
+
+# get Hanford data
+hdata3 = TimeSeries.fetch_open_data('H1', int(gps)-512, int(gps)+512, cache=True)
+hasd3 = hdata3.asd(fftlength=4, method="median")
+
+plot3 = hasd3.plot()
+ax3 = plot.gca()
+
+plot.show(warn=False)
+'''
