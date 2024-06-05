@@ -1,3 +1,5 @@
+https://cloud.tencent.com/edu/learning/course-2788-53487
+
 https://www.coursera.org/learn/linux-fundamentals/lecture/IpRos/specialization-overview
 
 1. Unix was owned and licensed by Bell Labs.
@@ -11,6 +13,8 @@ Linux Distributions
 - Fedora
 - SUSE
 - ubuntu
+
+# Basic concepts
 
 ## Linux Command Line
 
@@ -87,3 +91,21 @@ To create a softlink: `ln –s [originalfilename] [linkname]`
 - If you delete the original file with a hardlink, the link still works.
 - If you delete the oritinal file with a softlink, the link will be broken.
 - You can link both files and folders.
+
+
+
+# Hands on
+
+https://learn.microsoft.com/en-us/linux/install
+
+## Command lines
+
+Files and directories
+
+Installed Linux using wsl on windows 10. Tried to view, create and move files using:
+- ls
+- mkdir
+- cat
+- cp `cp ubfindme.txt /mnt/c/Users/`
+
+## Remote Linux via SSH on my phone
