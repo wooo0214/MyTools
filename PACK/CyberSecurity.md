@@ -8,6 +8,9 @@ These topics are included here as well:
 - ATA
     > https://learn.microsoft.com/en-us/advanced-threat-analytics/what-is-ata   
     https://learn.microsoft.com/en-us/advanced-threat-analytics/suspicious-activity-guide
+    https://learn.microsoft.com/en-us/advanced-threat-analytics/ata-architecture   
+    https://info.microsoft.com/rs/157-GQE-382/images/WE-SCRTY-CNTNT-FY17-03Mar-13-Advanced%20Threat%20Analytics-310193_content.pdf
+- Password Hash
 - Cyber security engineering
 - Cloud security
 - Endpoint security
