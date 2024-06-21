@@ -22,3 +22,27 @@ These topics are included here as well:
     - Defender for endpoint
     - Windows defender anti-virus
     - Defender for cloud apps
+
+## ATA Suspicious activity guide
+
+Types: True positive, benign true positive, false positive
+
+There are 22 suspicious activities mentioned in the guide. For each acitvity, you can read description, investigation and remediation, to learn:
+- key factors to calssify whether a suspicious activity is type x
+- general investigation steps after classification
+- remediation steps to mitiate or resolve the issue.
+
+### Suspicious activity
+
+- Encryption downgrade activity
+    - skeleton key
+    - golden ticket
+    - overpass the hash
+
+- Identity theft using pass the hash or pass the ticket attack   
+NTLM hash or kerberos tikcet is stolen and used. 
+
+- Reconnaissance using
+    - account enumeration
+    - directory serivce queries
+    - DNS
