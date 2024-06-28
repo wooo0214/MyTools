@@ -1,6 +1,9 @@
+This page will talk about:
+
 1. What is a server?
 1. What is a client?
 1. How internet works?
+1. Protocols
 
 
 ## Client vs Server
@@ -30,3 +33,15 @@ The internet is a bunch of computers sending files (images, music, docs, raw dat
 > How webpages appear on the browser?
 
 A browser is a piece of software that renders web pages. It receives and reads HTML files, and renders the HTML files and all the files that it links to, it renders the elements in the file on the screen.
+
+## Protocols
+
+Protocols are rules that computers need to follow when commnicating over the network.
+
+https://www.cnblogs.com/fzz9/p/8964513.html
+
+For example,
+- TCP
+- IP
+- UDP
+- HTTP
