@@ -1,3 +1,6 @@
+
+## Overview
+
 This page will talk about:
 
 1. What is a server?
@@ -33,6 +36,11 @@ The internet is a bunch of computers sending files (images, music, docs, raw dat
 > How webpages appear on the browser?
 
 A browser is a piece of software that renders web pages. It receives and reads HTML files, and renders the HTML files and all the files that it links to, it renders the elements in the file on the screen.
+
+### Collision Domain and Broadcast domain
+
+CD: domain that only one device can send information at a time.
+BD: domain that devices can recieve the broadcast sent from a site.
 
 ## Protocols
 
