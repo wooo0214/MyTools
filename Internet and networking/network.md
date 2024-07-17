@@ -8,6 +8,10 @@ This page will talk about:
 1. How internet works?
 1. Protocols
 
+### Reference
+
+https://res.frytea.com/Ebooks/CCNA%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97%E4%B8%AD%E6%96%87%E7%AC%AC%E4%B8%83%E7%89%88.pdf
+
 
 ## Client vs Server
 
