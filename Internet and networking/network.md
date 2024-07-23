@@ -1,6 +1,8 @@
 
 ## Overview
 
+> To be a specialist in computer networking. TBD: AI, Astronomy, Database.
+
 This page will talk about:
 
 1. What is a server?
