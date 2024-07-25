@@ -1,6 +1,8 @@
 '''
 Detecting Gravitational Waves events and sources
 
+big data | python | linux
+
 ## Data sources
 
 - https://www.ligo.caltech.edu/page/ligo-data
