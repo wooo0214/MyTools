@@ -8,6 +8,7 @@ This page will talk about:
 1. What is a server?
 1. What is a client?
 1. How internet works?
+1. OSI, TCP/IP
 1. Protocols
 
 ### Reference
@@ -48,6 +49,10 @@ A browser is a piece of software that renders web pages. It receives and reads H
 CD: domain that only one device can send information at a time.
 BD: domain that devices can recieve the broadcast sent from a site.
 
+## OSI and TCP/IP
+
+OSI
+
 ## Protocols
 
 Protocols are rules that computers need to follow when commnicating over the network.
@@ -59,3 +64,5 @@ For example,
 - IP
 - UDP
 - HTTP
+
+- ARP
