@@ -30,3 +30,23 @@
 1. 仪表板：展示工作表，分区
 
 # Power BI
+
+
+# Looker Studio
+
+> Looker Studio, formerly Google Data Studio, is an online tool for converting data into customizable, informative reports and dashboards.
+
+> Quick start:    
+https://support.google.com/looker-studio/answer/9171315?hl=en&ref_topic=6267740&sjid=7380730750791305113-NC
+
+## Example: gun permission by states
+
+    steps: 
+    - import data or connect to a data source
+    - add chart, select dimensions (x axis) and metric (y axis)
+    - use logo or image to set theme colors
+    - dive 
+
+![alt text](image.png)
+
+
