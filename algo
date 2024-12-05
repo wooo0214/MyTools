@@ -35,4 +35,31 @@ search(1);
 return 0; 
 }
 
-//
+//单链表，顺序查找某元素
+//初始化一个带头指针链表，指针p和待查找元素x
+List*seek (List *head,int x); 
+List *p;
+p=head->next ;
+while (p!=null && p->data !=x)
+    p=p->next //当p指针不为空且不等于x时继续往后查找
+return p
+
+//单链表，后插
+//在p位置后插入新元素x
+List*backinsert (List*p, int x);
+Node* c = (Node*) malloc (Sizeof(Node)); //定义一个新结点，为待插入的新结点
+c->data = x;
+
+c->next = p->next;
+p->next = c
+
+return p;
+
+//单链表，查找并删除某元素
+List*seek (List*head, int x);
+List*p;
+
+if (head->next == NULL) return 0;
+else while (p->data !=x) p=p->next;
+
+List*prev = 
