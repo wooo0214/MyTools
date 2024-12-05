@@ -37,6 +37,7 @@ Introduction to LIGO/Virgo data
 
 '''
 set up Google Colab to run the tutorials
+https://colab.research.google.com/
 
 '''
 ## Tutorial 1.1 Discovering open data from GW observatories. Introducing gwosc package, find_datasets module and bacis arguments to query datasets.
