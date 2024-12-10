@@ -1,3 +1,12 @@
+/*
+* is used to declare pointers and to dereference them.
+& is used to declare references （引用） and to get the address of a variable.
+
+eg
+int a;
+int *p0 = &a;
+*/
+
 //generates permutations of numbers from 1 to n, and then print those permutations by ascending order
 // for example, input n=3, there will be 6 permutations (123,132,213,231,312,321). It will print them in below order:
 /*
@@ -56,10 +65,117 @@ p->next = c
 return p;
 
 //单链表，查找并删除某元素
-List*seek (List*head, int x);
-List*p;
+List*delete (List*L, ElemType e);
+Node q,r;
 
-if (head->next == NULL) return 0;
-else while (p->data !=x) p=p->next;
+q=q->next;
+r=L->next;
 
-List*prev = 
+if (L->data == e) return L->next;
+
+while (r->data !=x && r->data != NULL) 
+q=r;
+r=r->next;
+
+if (r->data == NULL) return p; // 查找完成没有找到e
+else {
+q->next = r->next;
+return p }
+
+// 栈
+//定义顺序栈
+# define maxisize 50
+typedef struct {
+   ElemType data[maxsize];
+   int top  
+} Sqstack;
+
+//入栈 push
+bool push(Sqstack&S, elemtype x){
+    if (S.top==maxsize-1) 
+        return false;
+    else {
+        S.top=S.top+1;
+        S.data[S.top]=x;
+
+        return true;
+    }    
+}
+
+//出栈 pop
+bool pop(Sqstack&S, elemtype &x){
+    if (S.top == -1)
+        return false;
+    else
+        x = S.data[S.top];
+        S.top = S.top-1;
+        return true;
+        
+}
+
+// linkstack 链栈
+typedef struct Linknode {
+    elemtype data;
+    struct linknode*next;
+} linkstack;
+
+// 检查n个字符（0~n）是否中心对称
+int de (Linklist L, int n){
+    int i;
+    char s[n/2];
+    Lnode*p = L->next;
+
+    for (i=0;i<n/2;i++){
+        s[i]=p.data;
+        p=p->next;
+    }
+    i--; // 让i指回前半部分字符串的末尾
+
+    if (i%2==1) p=p->next;
+
+    while (p!=NULL&&p.data==s[i]) {  // 判断条件。当p所指结点不为空，且当前p所指结点值与s[i]相等时，继续进行比较，直到有不相同的元素或比完为止
+        i--;
+        p=p->next;
+    }
+
+    if (i==-1) return 1;
+    else return 0;
+
+}
+
+// BST Tree 在二叉排序树中查找某个元素x
+BSTNode* BST_Search (BiTree T, Keytype x) { //BSTNode*: This specifies the return type of the function, which is a pointer to a BSTNode.
+    while (T!=NULL && x!=T->data) {
+        if (x<T.data) T=T.lchild;
+        else T=T.rchild;
+    }
+    
+    return T;
+}
+
+// 插入
+// 考虑三种情况：1. T为空树，新建结点插入；2. 待插入值等于T的根节点值，插入失败；3. 递归地加入子树：小的插左大的插右
+int BTS_Insert(BiTree &T, KeyType x){ // &T, a reference to a BiTree object 
+    if (T==NUL) {
+        T= malloc(sizeof(BSTNode)); // 新建结点
+        T->data = x;
+        return 1;
+    }
+
+    else if (x==T->data)
+
+        return 0;
+
+    else if (x<T->data) 
+
+        return BTS_Insert(T.lchild, x); 
+        
+        else return BTS_Insert(T.rchild, x);
+    
+}
+
+//二叉排序树的创建
+
+// 图
+
+//冒泡排序
