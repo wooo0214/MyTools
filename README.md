@@ -21,3 +21,8 @@ Quick notes about useful tools or tips when working with software/solution proje
 # Resources
 
 Check md under subfolders separately.
+
+# How to set your goals
+
+set goals
+integrate your knowledges
