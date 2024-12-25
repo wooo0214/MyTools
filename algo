@@ -1,4 +1,5 @@
-/*
+// 易混淆点
+/* 声明指针 vs 声明引用
 * is used to declare pointers and to dereference them.
 & is used to declare references （引用） and to get the address of a variable.
 
@@ -6,6 +7,36 @@ eg
 int a;
 int *p0 = &a;
 */
+
+/* 访问结点数据或左右孩子、前后驱时的方式：node.data vs node->data
+In C++, whether you use node.data or node->data to access the data of a binary tree node depends on how the node is being referenced:
+
+node.data: This syntax is used when node is an object of the node class or struct. In other words, node is a direct instance of the node.
+
+struct TreeNode { int data; TreeNode* left; TreeNode* right; }; 
+TreeNode node; node.data = 10; // Accessing data directly
+
+node->data: This syntax is used when node is a pointer to an object of the node class or struct. The arrow operator (->) is used to access members of the object that the pointer points to.
+
+TreeNode* node = new TreeNode(); node->data = 10; // Accessing data through a pointer
+
+Why Use Each:
+node.data: Use this when you have a direct instance of the node. This is straightforward and does not involve pointers.
+node->data: Use this when you have a pointer to the node. This is common in binary trees because nodes often point to other nodes (e.g., left and right children).
+
+Example in Context:
+In a typical binary tree implementation, nodes are often dynamically allocated and linked together using pointers. Therefore, you would frequently use the node->data syntax.
+
+struct TreeNode { int data; TreeNode* left; TreeNode* right; }; void insert(TreeNode*& root, int value) { if (root == nullptr) { root = new TreeNode(); root->data = value; root->left = nullptr; root->right = nullptr; } else if (value < root->data) { insert(root->left, value); } else { insert(root->right, value); } }
+In this example, root is a pointer to a TreeNode, so you use root->data to access the data.
+
+Summary:
+Use node.data when node is an object.
+Use node->data when node is a pointer to an object.
+This distinction is crucial for correctly accessing and manipulating the data within your binary tree nodes.
+*/
+
+//以下是代码题
 
 //generates permutations of numbers from 1 to n, and then print those permutations by ascending order
 // for example, input n=3, there will be 6 permutations (123,132,213,231,312,321). It will print them in below order:
@@ -157,8 +188,9 @@ BSTNode* BST_Search (BiTree T, Keytype x) { //BSTNode*: This specifies the retur
 // 考虑三种情况：1. T为空树，新建结点插入；2. 待插入值等于T的根节点值，插入失败；3. 递归地加入子树：小的插左大的插右
 int BTS_Insert(BiTree &T, KeyType x){ // &T, a reference to a BiTree object 
     if (T==NUL) {
-        T= malloc(sizeof(BSTNode)); // 新建结点
+        T= (BiTree)malloc(sizeof(BSTNode)); // 新建结点
         T->data = x;
+        T->lchild=T->rchild=NULL;
         return 1;
     }
 
@@ -168,9 +200,9 @@ int BTS_Insert(BiTree &T, KeyType x){ // &T, a reference to a BiTree object
 
     else if (x<T->data) 
 
-        return BTS_Insert(T.lchild, x); 
+        return BTS_Insert(T->lchild, x); 
         
-        else return BTS_Insert(T.rchild, x);
+        else return BTS_Insert(T->rchild, x);
     
 }
 
@@ -179,3 +211,6 @@ int BTS_Insert(BiTree &T, KeyType x){ // &T, a reference to a BiTree object
 // 图
 
 //冒泡排序
+/*
+从后往前依次比较亮亮相林
+*/
