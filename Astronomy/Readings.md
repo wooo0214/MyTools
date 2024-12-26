@@ -1,4 +1,4 @@
-Readings 2024 - 2025
+# Readings 2024 - 2025
 
 | Name | ... | ... |
 |----------|----------|----------|
@@ -9,3 +9,7 @@ Readings 2024 - 2025
 |[The Formation of Galaxies](https://ned.ipac.caltech.edu/level5/March02/Efstathiou/frames.html)|||
 |[Evolution of Starts and Gas in Galaxies](https://arxiv.org/pdf/2203.02041)|||
 |星系宇宙学综述、博士论文综述|||
+
+# Prereqs
+
+- neutral hydrogen
