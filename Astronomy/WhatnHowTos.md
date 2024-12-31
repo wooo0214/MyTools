@@ -19,6 +19,7 @@ https://openstax.org/books/astronomy-2e/pages/6-thinking-ahead
 
 - JWST 
    - [User Doc](https://jwst-docs.stsci.edu/jwst-observatory-hardware/jwst-telescope#gsc.tab=0)
+   - [Science Performance Report](https://www.stsci.edu/files/live/sites/www/files/home/jwst/documentation/_documents/jwst-science-performance-report.pdf)
 
 
 ## How to capture star spectra in your backyard
