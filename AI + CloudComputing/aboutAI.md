@@ -1,5 +1,11 @@
 The general problem of simulating (or creating) intelligence has been broken into sub-problems. These consist of particular traits or capabilities that researchers expect an intelligent system to display. The traits described below have received the most attention and cover the scope of AI research.
 
+## Agents
+
+OpenAI
+- o1 - reasoning, planning
+- gpt - worker
+
 ## Goals
 
 - Reasoning and problem solving
