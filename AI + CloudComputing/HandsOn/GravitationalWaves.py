@@ -21,6 +21,7 @@ https://ask.igwn.org/t/open-data-workshop-study-hubs-2024/881
 ## Workshop 2024
 
 https://gwosc.org/odw/odw2024/
+https://gw-odw.thinkific.com/courses/odw2024
 
 
 What are gravitational waves events?
