@@ -24,6 +24,8 @@ MSSQL is an RDBMS developed by MS, using SQL to interact with the db and offers 
 
 ##  https://www.tutorialspoint.com/sql/sql_interview_questions.htm
 
+### Syntax
+
 SELECT column_name(s)
 FROM table_name
 WHERE condition
@@ -31,7 +33,12 @@ GROUP BY column_name(s)
 HAVING condition
 ORDER BY column_name(s);
 
-Sql function
+SELECT column_list
+FROM table1
+JOIN table2
+USING (common_column);
+
+### Sql function
 
     Trunc()
     Nvl(exp1, exp2)
@@ -43,7 +50,7 @@ Sql function
         Case
         Decode
         
-    Group functions
+#### Group functions
         Avg
         Count
         Max
