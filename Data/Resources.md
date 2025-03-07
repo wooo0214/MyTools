@@ -37,7 +37,7 @@ Data warehouse
 > best practices to design normalized tables in a relational database
 > information_schema
 
-- Fact table, dimentional table
+- Fact table: has measurements and metrics that would reference to dimentional tables; dimentional table: has attributes
 - Star vs snowflake schema
 - normalized and denormalized databases
 - Normal Forms
@@ -50,3 +50,38 @@ Data warehouse
 - Table partitions: vertical, horizontal
     - [syntax examples](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE-EXAMPLE): partition by list/range
 - Integrity
+
+### Data warehousing
+
+- four layers: source, staging, storage, presentation
+- ETL/ELT
+    - Extract
+    - Transform: sorting
+    - Load: playlists, reports
+- Example to show the design processes:
+    - Architecture: bottom up or up bottom
+    - Design: Kimball four steps:
+        - fact and dim tables design
+    - Implementation: on-premise or cloud
+    - Data cleaning: ELT or ETL
+
+### Snowflake
+
+A cloud data warehouse
+
+Snowflake sql syntax
+
+> https://docs.snowflake.com/en/reference
+
+- data types
+- functions: aggregate, concat, extract, group by all
+- joining: natural join (no need to write ON ), lateral (join subquery, to save computation in complex queirys with many joins )
+- CTE: common table expressions
+- Query optimization
+- JSON, semi-structured data: VARIANT data type, functions, querying
+    - PARSE_JSON
+    - OBJECT_CONSTRUCT
+
+### Visulization
+
+left, right skewed
