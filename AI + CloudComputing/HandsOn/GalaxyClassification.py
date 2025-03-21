@@ -1,7 +1,17 @@
 # Galaxy Multi-Image Classification with LeNet-5
 # https://www.kaggle.com/code/tenzinmigmar/galaxy-multi-image-classification-with-lenet-5/notebook
 
+# Overview
+'''
+- Load the Galaxy10 dataset
+- Build baseline model
+- Build LeNet-5 model
+- Evaluation (confusion matrix, accuracy, recall, f1 score)
+   - accuracy, Precision = True Positive (TP) / True Positive (TP) + False Positive (FP)
+   - recall, Recall = True Positive (TP) / True Positive (TP) + False Negative (FN)
+   - f1 score, evaluate the accuracy of a binary classification system. It is the harmonic mean (调和平均数) of precision and recall.
 
+'''
 '''
 [Done]
 
@@ -110,6 +120,7 @@ x_train, x_test, y_train, y_test = train_test_split(images, labels, test_size=0.
 features = ['Disk, Face-on, No Spiral', 'Smooth, Completely round', 'Smooth, in-between round', 'Smooth, Cigar shaped', 'Disk, Edge-on, Rounded Bulge', 'Disk, Edge-on, Boxy Bulge', 
             'Disk, Edge-on, No Bulge','Disk, Face-on, Tight Spiral', 'Disk, Face-on, Medium Spiral', 'Disk, Face-on, Loose Spiral']
 
+# to normalize the pixel values of the images: 0-255 to 0-1. It helps the model to converge faster.
 x_train = x_train / 255.0
 x_test = x_test / 255.0
 
@@ -128,7 +139,7 @@ x_train[1].shape
 >>> (256,256,3)
 '''
 
-# check a random section of train dataset images
+# draw the first 25 train images
 fig = plt.figure(figsize=(20,20))  # figsize: Width, height in inches
 
 for i in range(25):
@@ -172,7 +183,7 @@ plt.show()
 ## 根据分布函数
 ### 下面这段sequetial是干嘛的？
 '''
-Sequencial，序贯模型，是Keras模型之一，另一种是Model函数式模型。序贯模型是函数式模型的一种特殊情况。
+Sequential，序贯模型，是Keras模型之一，另一种是Model函数式模型。序贯模型是函数式模型的一种特殊情况。
 
 序贯模型是多个网络层的线性堆叠，“一条路走到黑”，为最简单的线性，从头到尾的结构顺序，不发生分叉。可以通过向Sequential模型传递一个layer的list来构造Sequential模型，也可以通过.add()方法一个个的将layer加入模型中。
 
@@ -189,9 +200,11 @@ modelzz = Sequential()
 
 # Baseline model to compare to LeNet-5 
 ## pretty slow 200ms+/step
-modelzz.add(Flatten(input_shape=(69, 69, 3)))
-modelzz.add(Dense(128, activation='relu'))
-modelzz.add(Dense(10, activation='softmax'))
+modelzz.add(Flatten(input_shape=(69, 69, 3))) # Flatten layer to convert 3D data to 1D
+modelzz.add(Dense(128, activation='relu')) # Dense layer with 128 neurons, to connect every input from Flatten layer to each of 128 neurons
+# modelzz.add(Dropout(0.2)) # Dropout layer to prevent overfitting
+modelzz.add(Dense(10, activation='softmax')) # Output layer with 10 neurons for multi-class classification with 10 classes, where each neuron corresponds to a class
+# The softmax activation function converts the raw output scores into probabilities, allowing the model to predict the likelihood of each class.
 
 model_optimizer = Adam(learning_rate=0.001) # need to use learning_rate instead of lr
 
@@ -201,7 +214,7 @@ lol = modelzz.fit(x_train, y_train, epochs=10, callbacks=[reduceLR])
 
 # Predictions on baseline model 
 
-predictions = modelz.predict(x_test)
+predictions = modelzz.predict(x_test)
 
 for i in range(10):
     print("Actual:", features[y_test[i]])
