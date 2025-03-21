@@ -1,5 +1,14 @@
 The general problem of simulating (or creating) intelligence has been broken into sub-problems. These consist of particular traits or capabilities that researchers expect an intelligent system to display. The traits described below have received the most attention and cover the scope of AI research.
 
+## Resources
+
+CNN - https://zhuanlan.zhihu.com/p/676412262
+    CNN by timeline - https://zhuanlan.zhihu.com/p/30755657
+    [待改进：参数量，训练时间，准确率，误差]
+    LeNet5 - https://www.geeksforgeeks.org/lenet-5-architecture/
+    [5层隐藏层]
+bilibili - 王木头学科学
+
 ## Agents
 
 OpenAI
